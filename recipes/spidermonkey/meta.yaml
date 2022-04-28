@@ -39,23 +39,21 @@ build:
 
 requirements:
   build:
-    # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
-    # Compilers are named 'c', 'cxx' and 'fortran'.
-    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
-    - perl
     - pkg-config
     - m4
     - zlib
   host:
+    - clangdev
     - python
+    - perl >=5.32.1
     - pip
     - readline
-    - icu
+    - icu >=69.1
   run:
-    - python
     - readline
-    - icu
+    - icu >=69.1
 
 test:
   # Some packages might need a `test/commands` key to check CLI.
